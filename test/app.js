@@ -5,7 +5,7 @@ app.post("/api/test", createMessage);
 app.delete("/api/test/:id", deleteMessage);
 
 // var connectionString = 'mongodb://127.0.0.1:27017/webdev-summer1-2017';
-var connectionString = 'mongodb://127.0.0.1:27017/test';
+var connectionString = 'mongodb://127.0.0.1:27017/test_v01';
 
 if (process.env.MLAB_USERNAME) {
     connectionString = process.env.MLAB_USERNAME + ":" +

@@ -20,18 +20,20 @@ userModel.findUserByCredentials = findUserByCredentials;
 
 module.exports = userModel;
 
-function createUser() {
+function createUser(user) {
     return userModel.create(user);
 }
 
-function findUserById() {
-
+function findUserById(userId) {
+    return userModel.findById(userId);
 }
 
 function findUserByUsername() {
     return userModel.findOne({usermame: username});
 }
 
-function findUserByCredentials() {
-
+function findUserByCredentials(credentials) {
+    var username = credentials.username;
+    var password = credentials.password;
+    return userModel.findOne({username: username, password: password});
 }

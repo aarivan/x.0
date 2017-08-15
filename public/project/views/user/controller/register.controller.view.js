@@ -7,7 +7,7 @@
         .module('XO')
         .controller('registerController', registerController);
 
-    function registerController(userService) {
+    function registerController(userServiceClient, $location) {
         var model = this;
         model.register = register;
 
@@ -22,7 +22,7 @@
                 return;
             }
 
-            userService
+            userServiceClient
                 .findUserByUsername(username)
                 .then(function () {
                     model.error = "Sorry, Username has been taken";
@@ -36,10 +36,10 @@
                         email: email,
                         phone: phone
                     };
-                    return userService
+                    return userServiceClient
                         .register(newUser)
                         .then(function () {
-                            $location.url('/profile');
+                            $location.url('/login');
                         }, function () {
                             model.error = "Sorry, unsuccessful registration. Please register again!";
                         });

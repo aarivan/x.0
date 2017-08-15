@@ -9,7 +9,9 @@
 
     function userServiceClient($http) {
         this.login = login;
+        this.register = register;
         this.findUserByUsername = findUserByUsername;
+        this.loggedIn = loggedIn;
 
         function login(username, password) {
             var url = "/api/login";
@@ -35,6 +37,15 @@
             var url = "/api/register";
             return $http.post(url, newUser)
                 .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function loggedIn() {
+            var url = "/api/loggedIn";
+            return $http.get(url)
+                .then(function (response) {
+                    console.log(response.data);
                     return response.data;
                 });
         }
