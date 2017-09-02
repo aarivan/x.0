@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse navbar-fixed-top header-color">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/welcome">Home</a></li>
+                <li><a>Rules</a></li>
+                <li><a href="#!/profile">Profile</a></li>
+                <li><a href="#!/contact">Contact</a></li>
+                <li><a ng-click="model.logout()">Logout</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="balloon">
+    <!-- Static navbar -->
+    <div class="container" style="display: table;">
+        <div class="column1 mobhide pull-left">
+            <h2>Rules to<br>x.0</h2>
+        </div>
+        <div class="column2 floating-logo pull-left hidden-md hidden-sm hidden-xs">
+            <img src="images/balloon-logo.png" width="170" height="250" alt="">
+        </div>
+        <div class="column3 container-fluid col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <p>
+            <h3><u>x.0</u></h3>
+            <h4>Player also known as: Word Mastermind</h4>
+            <h4>Player takes turns in trying to guess the word</h4>
+            </p>
+            <p>
+            <h4><u>Description</u></h4>
+                Computer, the Chooser, thinks of a n-letter word and the player, the Guesser, tries to guess it
+                At each turn the Guesser tries a n-letter word, and the Chooser says how close it is to the answer
+                The number of x - letters correct in the right position.
+                The number of 0 - letters correct but in the wrong position.
+                The Guesser tries to guess the answer in the fewest number of turns.
+                Note: The words do not contain repeating letters
+            </p>
+        </div>
+    </div>
+</div>
+

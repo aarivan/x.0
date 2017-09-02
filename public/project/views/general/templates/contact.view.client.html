@@ -14,82 +14,55 @@
                 <li><a href="#!/welcome">Home</a></li>
                 <li><a href="#!/rules">Rules</a></li>
                 <li><a href="#!/profile">Profile</a></li>
-                <li><a href="#!/contact">Contact</a></li>
+                <li><a>Contact</a></li>
                 <li><a ng-click="model.logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="balloon">
     <!-- Static navbar -->
     <div class="container" style="display: table;">
         <div class="column1 mobhide pull-left">
-            <h2>Your<br>Profile</h2>
+            <h2>Contact<br>x.0</h2>
         </div>
         <div class="column2 floating-logo pull-left hidden-md hidden-sm hidden-xs">
             <img src="images/balloon-logo.png" width="170" height="250" alt=""/>
         </div>
         <div class="column3 container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <form>
                 <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                 <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
                 <div class="form-group">
-
                     <!--Username-->
                     <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-
-                        <input ng-model="model.user.username"
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        <input  ng-model="model.user.username"
                                type="text"
                                class="form-control"
                                id="username"
-                               placeholder="Username">
+                               placeholder="Username"/>
                     </div>
-
-                    <!--Email Address-->
                     <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-star"></i>
-                </span>
-
-                        <input ng-model="model.user.email"
-                               type="email"
-                               class="form-control"
-                               id="email"
-                               placeholder="Email">
-                    </div>
-
-                    <!--First Name-->
-                    <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-
-                        <input ng-model="model.user.firstName"
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-bell"></i>
+                        </span>
+                        <input ng-model="model.feedback.subject"
                                type="text"
                                class="form-control"
-                               id="first-name"
-                               placeholder="First Name">
+                               id="subject"
+                               placeholder="Subject"/>
                     </div>
-
                     <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-
-                        <input ng-model="model.user.lastName"
-                               type="text"
-                               class="form-control"
-                               id="last-name"
-                               placeholder="Last Name">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </span>
+                        <textarea ng-model="model.feedback.review" type="text" class="form-control" id="review"
+                                  placeholder="FeedBack"></textarea>
                     </div>
                 </div>
-            </form>
-            <a class="btn btn-success btn-block" ng-click="model.update(model.user)">Update</a>
-            <a class="btn btn-danger btn-block" ng-click="model.unregister(model.user)">Delete</a>
+            <a class="btn btn-success btn-block" ng-click="model.submitFeedback(model.feedback)">Submit</a>
         </div>
     </div>
 </div>

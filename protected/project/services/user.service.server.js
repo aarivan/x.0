@@ -1,7 +1,3 @@
-/**
- * Created by abhil on 8/13/2017.
- */
-
 var app = require('../../../express');
 var userModel = require('../models/user/user.model.server');
 var passport = require('passport');
@@ -15,8 +11,38 @@ passport.deserializeUser(deserializeUser);
 
 app.get('/api/user/:username', findUserByUsername);
 app.post('/api/register', register);
-app.post('/api/login', login);
+app.post('/api/login', passport.authenticate('local'), login);
 app.get('/api/loggedIn', loggedIn);
+app.post('/api/user/:userId', update);
+app.delete('/api/unregister/:userId',unregister);
+app.post('/api/logout',logout);
+
+function logout(req, res) {
+    req.logout();
+    res.sendStatus(200);
+}
+
+function unregister (req, res) {
+    console.log(req);
+    var userId = req.params.userId;
+    userModel
+        .deleteUser(userId)
+        .then(function (user) {
+            req.logout();
+            res.sendStatus(200);
+        });
+}
+
+function update(req, res) {
+    var userId = req.params['userId'];
+    var user = req.body;
+    userModel.updateUser(userId, user)
+        .then(function (response) {
+            res.json(response);
+        },function (err) {
+            res.send(err);
+        });
+}
 
 function findUserByUsername(req, res) {
     var username = req.query['username'];
@@ -39,18 +65,12 @@ function register(req, res) {
 }
 
 function login(req, res) {
-    var credentials = req.body;
-    userModel.findUserByCredentials(credentials)
-        .then(function (user) {
-            res.json(user);
-        }, function (err) {
-            res.send(err);
-        })
+    var user = req.user;
+    res.json(user);
 }
 
 function loggedIn(req, res) {
     var user = req.user;
-    console.log(user);
     if (req.isAuthenticated()) {
         res.json(user);
     } else {

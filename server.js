@@ -1,8 +1,3 @@
-/**
- * Created by abhil on 8/12/2017.
- */
-
-
 var app = require('./express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');

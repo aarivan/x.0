@@ -24,12 +24,37 @@
                 controllerAs: 'model'
             })
             .when('/welcome', {
-                templateUrl: './views/user/templates/welcome.view.client.html',
+                templateUrl: './views/game/templates/welcome.view.client.html',
+                controller: 'welcomeController',
+                controllerAs: 'model',
                 resolve: {
                     currentUser: checkLoggedIn
                 }
             })
-        ;
+            .when('/profile', {
+                templateUrl: './views/user/templates/profile.view.client.html',
+                controller: 'profileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/rules', {
+                templateUrl: './views/general/templates/rules.view.client.html',
+                controller: 'generalController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/contact', {
+                templateUrl: './views/general/templates/contact.view.client.html',
+                controller: 'generalController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            });
     }
 
     function checkLoggedIn(userServiceClient, $q, $location) {
@@ -46,5 +71,4 @@
             });
         return deferred.promise;
     }
-
 })();
