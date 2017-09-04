@@ -1,7 +1,3 @@
-/**
- * Created by abhil on 8/13/2017.
- */
-
 var mongoose = require('mongoose');
 
 // ENTER THE CORRECT CREDENTIALS

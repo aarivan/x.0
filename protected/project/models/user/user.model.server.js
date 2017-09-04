@@ -23,7 +23,6 @@ function createUser(user) {
 }
 
 function findUserById(userId) {
-    console.log(userId);
     return userModel.findById(userId);
 }
 

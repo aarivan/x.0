@@ -31,11 +31,13 @@
         <!-- sidebar -->
         <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
             <ul class="nav" id="menu">
-                <li><a href=""><i class="glyphicon glyphicon-fire"></i> <span class="collapse in hidden-xs">New Game</span></a></li>
-                <li><a href=""><i class="glyphicon glyphicon-cloud-upload"></i> <span class="collapse in hidden-xs">Load Game</span></a></li>
-                <li><a href=""><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Player Statistics</span></a></li>
+                <li><a ng-click="welcomeTemplate='../../../../project/views/game/templates/options/newgamecategories.view.client.html'"><i class="glyphicon glyphicon-fire"></i> <span class="collapse in hidden-xs">New Game</span></a></li>
+                <li><a ng-click="welcomeTemplate='../../../../project/views/game/templates/options/loadgame.view.client.html'"><i class="glyphicon glyphicon-cloud-upload"></i> <span class="collapse in hidden-xs">Load Game</span></a></li>
+                <li><a ng-click="welcomeTemplate='../../../../project/views/game/templates/options/playerstatistics.view.client.html'"><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Player Statistics</span></a></li>
             </ul>
         </div>
+        <br><br>
+
         <!-- /sidebar -->
     </div>
 </div>

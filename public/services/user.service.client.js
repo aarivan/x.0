@@ -44,7 +44,6 @@
             };
             return $http.post(url, credentials)
                 .then(function (response) {
-                    console.log(response);
                     return response.data;
                 });
         }
@@ -69,7 +68,6 @@
             var url = "/api/loggedIn";
             return $http.get(url)
                 .then(function (response) {
-                    console.log(response);
                     return response.data;
                 });
         }

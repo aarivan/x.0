@@ -23,7 +23,6 @@ function logout(req, res) {
 }
 
 function unregister (req, res) {
-    console.log(req);
     var userId = req.params.userId;
     userModel
         .deleteUser(userId)

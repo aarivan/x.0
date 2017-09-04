@@ -1,7 +1,3 @@
-/**
- * Created by abhil on 8/13/2017.
- */
-
 (function () {
     angular
         .module('XO')
@@ -34,6 +30,14 @@
             .when('/profile', {
                 templateUrl: './views/user/templates/profile.view.client.html',
                 controller: 'profileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/newGame', {
+                templateUrl: './views/game/templates/options/newgame.view.client.html',
+                controller: 'welcomeController',
                 controllerAs: 'model',
                 resolve: {
                     currentUser: checkLoggedIn
